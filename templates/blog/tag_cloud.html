@@ -1,0 +1,7 @@
+{% if tag_list %}
+		{% for tag in tag_list %}
+			<a href="/blog/tags/{{ tag.name }}/">{{ tag.name }}</a>
+		{% endfor %}
+{% else %}
+<p>Sorry, no tags.</p>
+{% endif %}

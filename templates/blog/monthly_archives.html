@@ -1,0 +1,11 @@
+{% if month_archive_list %}
+  <ul>
+    {% for article in month_archive_list %}
+		<li><a href="/blog/{{ article.date.year }}/{{ article.date.month }}/{{ article.id }}/">{{ article.title }}</a>, {{ article.date }}</li>
+		{% endfor %}
+  </ul>
+{% else %}
+  <p>
+		Sorry, no archives for this month.
+  </p>
+{% endif %}

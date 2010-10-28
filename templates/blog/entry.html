@@ -1,0 +1,16 @@
+<h1> {{ entry.title }} </h1>
+<p>
+  {{ entry.content }}
+</p>
+<div id="comments"><a href="#comments" title="Comments"></a>
+</div>
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+<div id="post_comment">
+	<form action="#comments" method="post">
+		{% csrf_token %}
+		<input type="text" name="username" /><br />
+		<input type="password" name="password" /><br />
+		<textarea cols="30" rows="5"></textarea><br />
+		<input type="submit" value="Post" /><br />
+	</form>
+</div>

@@ -1,0 +1,9 @@
+{% if latest_entries_list %}
+	<ul>
+		{% for entry in latest_entries_list %}
+		<li><a href="/blog/{{ entry.date.year }}/{{ entry.date.month }}/{{ entry.id }}/">{{ entry.title }}:</a> by <a href="/blog/authors/{{ entry.author }}/">{{ entry.author }}</a></li>
+		{% endfor %}
+	</ul>
+{% else %}
+	<p>No article available</p>
+{% endif %}
