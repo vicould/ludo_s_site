@@ -11,5 +11,9 @@
   {% if comment_count = 0 %}
   <p>Nobody commented this entry yet.</p>
   {% else %}
+  {% render_comment_list for entry %}
   {% endif %}
+</div>
+<div id="comment_form">
+  {% render_comment_form for entry %}
 </div>
