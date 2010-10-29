@@ -1,4 +1,4 @@
-from blog.models import Article, Comment, Author, Tag, User
+from blog.models import Article, Author, Tag, User
 from django.contrib import admin
 
 class ArticleAdmin(admin.ModelAdmin):
@@ -13,7 +13,5 @@ class ArticleAdmin(admin.ModelAdmin):
 
 admin.site.register(Article, ArticleAdmin)
 admin.site.register(Author)
-admin.site.register(Comment)
-admin.site.register(User)
 admin.site.register(Tag)
 

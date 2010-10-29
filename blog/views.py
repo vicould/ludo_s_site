@@ -1,8 +1,8 @@
 # Create your views here.
 from django.http import HttpResponse, Http404
 from django.shortcuts import render_to_response, get_object_or_404
-from django.template import Context, loader
-from blog.models import Article, Tag, Comment, Author
+from django.template import RequestContext, Context, loader
+from blog.models import Article, Tag, Author
 
 def index(request):
     latest_entries_list = Article.objects.all().order_by('-date')[:5]
@@ -18,7 +18,7 @@ def month_archive(request, year, month):
 
 def article_entry(request, year, month, article_id):
     a = get_object_or_404(Article, date__year=year, date__month=month, id=article_id,)
-    return render_to_response('blog/entry.html', {'entry': a})
+    return render_to_response('blog/entry.html', {'entry': a}, context_instance=RequestContext(request))
 
 def tag_cloud(request):
     tag_list = Tag.objects.all()
@@ -39,4 +39,3 @@ def author(request, author):
 def compute_month(month):
     month_tab = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december']
     return month_tab[month-1]
-
