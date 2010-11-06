@@ -1,6 +1,0 @@
-# ignore vim swap files
-.*.swp
-.*.swo
-
-# ignore compiled files
-*.pyc
