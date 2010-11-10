@@ -1,6 +1,7 @@
 from blog.models import Article, Author, Tag, User
 from django.contrib import admin
 
+
 class ArticleAdmin(admin.ModelAdmin):
     fieldsets = [
             ('Content', {'fields' : ['title', 'content', 'author', 'date', 'extract']}),
@@ -10,6 +11,7 @@ class ArticleAdmin(admin.ModelAdmin):
     list_filter = ['date']
     search_fields = ['title']
     date_hierarchy = 'date'
+
 
 admin.site.register(Article, ArticleAdmin)
 admin.site.register(Author)

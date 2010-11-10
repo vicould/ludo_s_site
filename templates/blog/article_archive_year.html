@@ -1,0 +1,15 @@
+{% if object_list %}
+<ul>
+	{% for article in object_list %}
+	<div class="article">
+		<h2><a href="/blog/{{ article.date.year }}/{{ article.date.month }}/{{ article.id }}/">{{ article.title }}</a></h2>
+		<div class="article_date">{{ article.date }}</div>
+		<div class="article_abstract">{{ article.extract }}</div>
+	</div>
+	{% endfor %}
+</ul>
+{% else %}
+<p>
+Sorry, no archives for this year.
+</p>
+{% endif %}

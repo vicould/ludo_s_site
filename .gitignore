@@ -1,5 +1,5 @@
 # ignore swap files from vim
-.*.sw*
+.*.sw[a-z]
 
 # ignore compiled files :
 *.pyc

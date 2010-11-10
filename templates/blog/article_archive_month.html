@@ -1,8 +1,8 @@
-{% if month_archive_list %}
+{% if object_list %}
   <ul>
-    {% for article in month_archive_list %}
+    {% for article in object_list %}
 		<li><a href="/blog/{{ article.date.year }}/{{ article.date.month }}/{{ article.id }}/">{{ article.title }}</a>, {{ article.date }}</li>
-		{% endfor %}
+	{% endfor %}
   </ul>
 {% else %}
   <p>

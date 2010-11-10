@@ -1,6 +1,6 @@
-{% if latest_entries_list %}
+{% if latest %}
 	<ul>
-		{% for entry in latest_entries_list %}
+		{% for entry in latest %}
 		<li><a href="/blog/{{ entry.date.year }}/{{ entry.date.month }}/{{ entry.id }}/">{{ entry.title }}:</a> by <a href="/blog/authors/{{ entry.author }}/">{{ entry.author }}</a></li>
 		{% endfor %}
 	</ul>
