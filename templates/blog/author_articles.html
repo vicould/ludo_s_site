@@ -1,3 +1,6 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
 {% if publications_list %}
 <ul>
   {% for article in publications_list %}
@@ -16,3 +19,4 @@
 {% else %}
 <p>Sorry this author did not publish any article yet.</p>
 {% endif %}
+{% endblock %}

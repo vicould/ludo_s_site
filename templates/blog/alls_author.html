@@ -1,8 +1,11 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
 {% if author_list %}
 <ul>
 	{% for author in author_list %}
 		<li>
-			<a href="/blog/authors/{{ author.user.username }}">{{ author.user.username }}</a>
+      <a href="{{ author.get_absolute_url }}">{{ author.user.username }}</a>
 			<div class="author_name">{{ author.first_name }} {{ author.last_name }}</div>
 			<div class="author_bio">{{ author.bio }}</div>
 		</li>
@@ -11,3 +14,4 @@
 {% else %}
 <p>Sorry this blog has no author ...</p>
 {% endif %}
+{% endblock %}

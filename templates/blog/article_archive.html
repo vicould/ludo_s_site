@@ -1,9 +1,7 @@
-{% if latest %}
-	<ul>
-		{% for entry in latest %}
-		<li><a href="/blog/{{ entry.date.year }}/{{ entry.date.month }}/{{ entry.id }}/">{{ entry.title }}:</a> by <a href="/blog/authors/{{ entry.author }}/">{{ entry.author }}</a></li>
-		{% endfor %}
-	</ul>
-{% else %}
-	<p>No article available</p>
-{% endif %}
+{% extends 'layout/article_archive_template.html' %}
+
+{% block extrahead %}
+<link rel="alternate" type="application/rss+xml" title="ERE || Derniers articles" href="/latest/feed" />
+{% endblock %}
+
+{% block archive_type %} site{% endblock %}
