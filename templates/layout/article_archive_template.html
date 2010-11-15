@@ -6,13 +6,13 @@
 	{% for article in object_list %}
 	<div class="article">
     <h2><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></h2>
-    <div class="article_informations">Écrit par <a href="{{ article.author.get_absolute_url }}">{{ article.author }}</a> dans <a href="{{ article.category.get_absolute_url }}">{{ article.category }}</a></div>
+    <div class="article_informations">Written by <a href="{{ article.author.get_absolute_url }}">{{ article.author }}</a> in <a href="{{ article.category.get_absolute_url }}">{{ article.category }}</a></div>
 		<p class="article_abstract">{{ article.extract }}</p>
 	</div>
 	{% endfor %}
 {% else %}
   <p id="no_archive_found">
-    Désolé, il n'y a pas encore d'article pour ce{% block archive_type %}{% endblock %}.
+    Sorry, no article for this {% block archive_type %}{% endblock %}.
   </p>
 {% endif %}
 </div>

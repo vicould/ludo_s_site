@@ -2,9 +2,9 @@ from django.contrib.syndication.views import Feed
 from  blog.models import Article
 
 class RecentArticlesFeed(Feed):
-    title = "Les derniers articles du site de l'ERE"
+    title = "Ludo's blog last updates"
     link = "/"
-    description = "Flux regroupant les derniers articles du site de l'ERE"
+    description = "Last articles feed"
 
     def items(self):
         return Article.objects.order_by('-date')[:5]

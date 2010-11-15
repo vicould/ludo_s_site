@@ -1,4 +1,4 @@
-# Django settings for first_project project.
+# Django settings for ludo_site project.
 import os
 
 DEBUG = True
@@ -32,7 +32,7 @@ TIME_ZONE = 'Europe/Paris'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'fr-FR'
+LANGUAGE_CODE = 'en-US'
 
 SITE_ID = 1
 
@@ -76,7 +76,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
-ROOT_URLCONF = 'first_project.urls'
+ROOT_URLCONF = 'ludo_s_site.urls'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
