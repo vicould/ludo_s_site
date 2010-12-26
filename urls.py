@@ -16,7 +16,10 @@ urlpatterns = patterns('',
     (r'^comments/', include('django.contrib.comments.urls')),
 
     # the blog
-    (r'^', include('blog.urls')),
+    (r'^', include('ludo.blog.urls')),
+
+    # photo gallery
+    (r'^photos/', include('ludo.gallery.urls'),
 
 )
 
