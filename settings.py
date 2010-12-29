@@ -96,5 +96,6 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
-    'blog'
+    'ludo_s_site.blog',
+    'ludo_s_site.gallery',
 )
