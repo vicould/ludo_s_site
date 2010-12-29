@@ -15,6 +15,14 @@
           Geeky and real-life stuff
         </div>
         <div id="top_menu">
+          {% load menu %}
+
+          {% top_menu_content as top_menu_list %}
+          <ul>
+            {% for menu in top_menu_list %}
+            <li><a href="{{ menu.get_absolute_url }}">{{ menu.element }}</a></li>
+            {% endfor %}
+          </ul>
         </div>
       </div>
       <div id="center">
