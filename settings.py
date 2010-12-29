@@ -1,4 +1,4 @@
-# Django settings for ludo_site project.
+# Django settings for ludo_s_site project.
 import os
 
 DEBUG = True

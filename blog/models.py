@@ -74,10 +74,10 @@ class TopMenuElement(models.Model):
         return self.element
 
     def get_absolute_url(self):
-        return '/~ere/%s' % self.url_suffix
+        return '/%s' % self.url_suffix
 
 
-class LeftMenuElement(models.Model):
+class SideMenuElement(models.Model):
     element = models.CharField(max_length=20)
     url_suffix = models.CharField(max_length=100, blank=True)
     position = models.IntegerField()
@@ -86,5 +86,5 @@ class LeftMenuElement(models.Model):
         return self.element
 
     def get_absolute_url(self):
-        return '/~ere/%s' % self.url_suffix
+        return '/%s' % self.url_suffix
 
