@@ -1,19 +1,40 @@
-{% extends 'layout/base.html' %}
+{% extends 'layout/blog_base.html' %}
+
+{% block extracss %}
+<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/list.css" media="screen" />
+{% endblock %}
 
 {% block content %}
 <div id="archive">
-{% if object_list %}
-	{% for article in object_list %}
-	<div class="article">
-    <h2><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></h2>
-    <div class="article_informations">Written by <a href="{{ article.author.get_absolute_url }}">{{ article.author }}</a> in <a href="{{ article.category.get_absolute_url }}">{{ article.category }}</a></div>
-		<p class="article_abstract">{{ article.extract }}</p>
-	</div>
-	{% endfor %}
-{% else %}
+  {% if object_list %}
+  {% for article in object_list %}
+  <div class="article_{% cycle 'even' 'odd' %}">
+    <div class="content_list">
+      <h2><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></h2>
+      <div class="article_informations">
+        {% block informations %}
+        written by <a href="{{ article.author.get_absolute_url }}">{{ article.author }}</a> in <a href="{{ article.category.get_absolute_url }}">{{ article.category }}</a>
+        {% endblock %}
+      </div>
+      <p class="article_abstract">{{ article.extract }}</p>
+      <div class="article_tags">
+        <span class="tags_word">Tags :</span>
+        {% for tag in article.tag.all %}
+            <a href="{{ tag.get_absolute_url }}">{{ tag.name }}</a>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="date_list">
+      <span class="day">{{ article.date|date:"d" }}</span>
+      <span class="month"><a href="/~ere/{{ article.date.year }}/{{ article.date|date:"m" }}">{{ article.date|date:"M" }}</a></span>
+      <span class="year"><a href="/~ere/{{ article.date.year }}">{{ article.date.year }}</a></span>    
+    </div>
+  </div>
+  {% endfor %}
+  {% else %}
   <p id="no_archive_found">
-    Sorry, no article for this {% block archive_type %}{% endblock %}.
+  Sorry, no articles yet for this {% block archive_type %}{% endblock %}.
   </p>
-{% endif %}
+  {% endif %}
 </div>
 {% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'layout/blog_base.html' %}
+
+{% block extracss %}
+<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/meeting_list.css" media="screen" />
+{% endblock %}
+
+{% block content %}
+<div id="meeting">
+  {% if meetings_list %}
+  {% for meeting in meetings_list %}
+  <div class="meeting_{% cycle 'even' 'odd' %}">
+    <h2>{{ meeting.title }}</h2>
+    <div class="meeting_informations">
+      <div class="meeting_date">Le {{ meeting.date|date:"d F Y" }} à {{ meeting.date|time:"H:i" }} dans <a href="{{ meeting.category.get_absolute_url }}">{{ meeting.category }}</a></div>
+      {% if meeting.description %}
+        <div class="meeting_post">Voir l'article associé : <a href="{{ meeting.description.get_absolute_url }}">{{ meeting.description }}</a></div>
+      {% endif %}
+    </div>
+  </div>
+  {% endfor %}
+  {% else %}
+  <p id="no_archive_found">
+  Désolé, il n'y a plus de réunion.
+  </p>
+  {% endif %}
+</div>
+{% endblock %}

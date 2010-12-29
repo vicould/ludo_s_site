@@ -1,30 +1,63 @@
-{% extends 'layout/base.html' %}
+{% extends 'layout/blog_base.html' %}
+
+{% block title %}{{ article_entry.title }} || {% endblock %}
+{% block extracss %}
+<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}/css/article_entry.css" media="screen" />
+{% endblock %}
 
 {% block content %}
 <div id="article">
-  <h2> {{ article_entry.title }} </h2>
-  <div id="article_informations">
-    Written on the {{ article_entry.date|date:"d F Y" }} at {{ article_entry.date|time:"H:i" }} by <a href="/authors/{{ article_entry.author }}">{{ article_entry.author }}</a>
+  <div id="article_header">
+    <h2> {{ article_entry.title }} </h2>
+    <div id="article_informations">
+      Écrit le {{ article_entry.date|date:"d F Y" }} à {{ article_entry.date|time:"H:i" }} par <a href="/authors/{{ article_entry.author }}">{{ article_entry.author }}</a>
+    </div>
   </div>
   <div id="content">
     {{ article_entry.content|safe }}
   </div>
+  <div id="article_tags">
+    <span id="tags_word">Tags :</span>
+    {% for tag in article_entry.tag.all %}
+    <a href="{{ tag.get_absolute_url }}">{{ tag.name }}</a>
+    {% endfor %}
+  </div>
 </div>
-<div id="comments">
-  <a href="#comments">Comments</a>
-  {% load comments %}
-  {% get_comment_count for article_entry as comment_count %}
-  {% if comment_count = 0 %}
-  <p>No one commented this entry yet</p>
-  {% else %}
-  {% render_comment_list for article_entry %}
-  {% endif %}
-</div>
-<div id="comment_form">
+<div id="comments_wrapper">
+  <h3><a href="#comments">Commentaires</a></h3>
+  <div id="comments">
+    {% load comments %}
+    {% get_comment_count for article_entry as comment_count %}
+    {% if comment_count = 0 %}
+      <p>Personne n'a encore commenté cette page.</p>
+    {% else %}
+      {% get_comment_list for article_entry as comment_list %}
+      {% for comment in comment_list %}
+        <div class="comment_{% cycle 'even' 'odd' %}">
+          <div class="comment_informations">
+            <div class="comment_user">{{ comment.user_name }}</div>
+            <div class="comment_date">{{ comment.submit_date }}</div>
+          </div>
+          <div class="comment_content">{{ comment.comment }}</div>
+        </div>
+      {% endfor %}
+    {% endif %}
+  </div>
   {% if article_entry.allow_comments %}
-    {% render_comment_form for article_entry %}
-  {% else %}
-    Comments are closed.
+    <h3>Poster un commentaire</h3>
+    <div id="comment_form">
+      {% get_comment_form for article_entry as form %}
+      <ul>
+        <li>{{ form.content_type }}</li>
+        <li>{{ form.object_pk }}</li>
+        <li>{{ form.timestamp }}</li>
+        <li>{{ form.security_hash }}</li>
+        <li>Nom</li>
+        <li class="input_element">{{ form.name }}</li>
+        <li>Commentaire</li>
+        <li class="input_element">{{ form.comment }}</li>
+        <li><span style="display: none;">{{ form.honeypot }}</span></li>
+    </div>
   {% endif %}
 </div>
 {% endblock %}

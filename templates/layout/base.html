@@ -8,30 +8,19 @@
     {% block extrahead %}{% endblock %}
   </head>
   <body>
-    <div id="main_div">
-      <div id="main_div_2">
-        <div id="header">
-          <div id="title">
-            <h1><a href="/">Ludo's Blog</a></h1>
-            Geeky and real-life stuff
-          </div>
-          <div id="top_menu">
-            <a href="/categories">Category</a>&nbsp;&nbsp;  
-            <a href="/">Home</a> 
-          </div>
+    <div id="main_wrapper">
+      <div id="header">
+        <div id="title">
+          <h1><a href="/">Ludo's Blog</a></h1>
+          Geeky and real-life stuff
         </div>
-        <div id="center">
-          <div id="left_column">
-            Lorem
-            Ipsum
-          </div>
-          <div id="right_column">
-              {% block content %}{% endblock %}
-          </div>
+        <div id="top_menu">
         </div>
-        <div id="footer">
-          Footer
-        </div>
+      </div>
+      <div id="center">
+        {% block wrapper_content %}{% endblock %}
+      </div>
+      <div id="footer">
       </div>
     </div>
   </body>

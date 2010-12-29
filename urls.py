@@ -16,15 +16,15 @@ urlpatterns = patterns('',
     (r'^comments/', include('django.contrib.comments.urls')),
 
     # the blog
-    (r'^', include('ludo.blog.urls')),
+    (r'^', include('ludo_s_site.blog.urls')),
 
     # photo gallery
-    (r'^photos/', include('ludo.gallery.urls'),
+    (r'^photos/', include('ludo_s_site.gallery.urls')),
 
 )
 
 # used to serve static content when using the development server
-if settings.DEBUG:
+if (settings.DEBUG):
     urlpatterns += patterns('django.views.static',
             url(r'^site_media/(?P<path>.*)$', 'serve',
                 {'document_root': settings.MEDIA_ROOT}),
