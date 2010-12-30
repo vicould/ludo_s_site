@@ -15,8 +15,7 @@ urlpatterns = patterns('',
     # For the comments
     (r'^comments/', include('django.contrib.comments.urls')),
 
-    # the ludo_s_site.blog
-    # the ludo_s_site.blog
+    # the blog
     (r'^', include('ludo_s_site.blog.urls')),
 
     # photo gallery

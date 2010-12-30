@@ -18,7 +18,6 @@ article_query_basis_dictionary = { 'queryset' : Article.objects.all(), 'date_fie
                      'date'}
 
 urlpatterns = patterns('ludo_s_site.blog.views',
-urlpatterns = patterns('ludo_s_site.blog.views',
     (r'^$',
      date_based.archive_index,
      dict(article_query_basis_dictionary.items() + { 'template_object_name' :
