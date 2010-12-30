@@ -35,8 +35,7 @@ class Set(models.Model):
     date = models.DateTimeField()
     place = models.CharField(max_length=200)
     pictures = models.ForeignKey('Picture', related_name='album')
-    front_pic = models.OneToOneField('Picture', limit_choices_to={'id' :
-                                                                 pictures})
+    front_pic = models.OneToOneField('Picture')
 
     def __unicode__(self):
         return self.name
