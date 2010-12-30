@@ -1,5 +1,4 @@
 from django.db import models
-
 # Create your models here.
 
 
@@ -33,9 +32,9 @@ class Collection(models.Model):
 class Set(models.Model):
     name = models.CharField(max_length=100)
     date = models.DateTimeField()
-    place = models.CharField(max_length=200)
+    place = models.CharField(max_length=200, blank=True)
     pictures = models.ForeignKey('Picture', related_name='album')
-    front_pic = models.OneToOneField('Picture')
+    front_pic = models.OneToOneField('Picture', blank=True, null=True)
 
     def __unicode__(self):
         return self.name
@@ -47,9 +46,9 @@ class Set(models.Model):
 
 
 class Picture(models.Model):
-    pic = models.ImageField(upload_to='photo/%Y/%m/%d')
-    title = models.CharField(max_length=100)
-    date = models.DateTimeField()
+    pic = models.ImageField(upload_to='photo/%Y/%m/%d', blank=True)
+    title = models.CharField(max_length=100, blank=True)
+    date = models.DateTimeField(null=True, blank=True)
     tag = models.ManyToManyField(Tag, blank=True)
     abstract = models.TextField(blank=True)
 
@@ -59,3 +58,41 @@ class Picture(models.Model):
     
     def get_absolute_url(self):
         return '/gallery/%s/%s' % (self.album, self.id)
+
+
+
+# --- callback functions, called on a signal  ---
+
+import re
+from ludo_s_site.gallery import exif_utils
+
+def fill_picture_set(sender, **kwargs):
+    """Called on save of a picture in the database: retrieves the EXIF
+    informations in order to fill the fields of the model"""
+    try:
+        instance = kwargs['instance']
+    except KeyError:
+        return
+
+    filename_re = re.compile('[^/]*$')
+
+    path = instance.pic.path
+    filename = filename_re.search(path)
+
+    exif_date = exif_utils.get_date(path)
+    if (exif_date == instance.date):
+        return # we already saved this one, pass
+    instance.date = exif_date
+
+    if (filename != None):
+        instance.title = filename.group()
+
+    instance.save()
+
+
+
+# --- connecting the functions ---
+from django.db.models.signals import post_save
+
+# functions for the Picture model
+post_save.connect(fill_picture_set, sender=Picture)

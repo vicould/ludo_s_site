@@ -1,0 +1,3 @@
+ * AJAX to fill the exif infos in the picture ?
+ * Upload directly a set of pictures (either a folder, or many files)
+ * GeoDjango to show where the picture was taken
