@@ -31,7 +31,7 @@ class Collection(models.Model):
 
 class Set(models.Model):
     name = models.CharField(max_length=100)
-    date = models.DateTimeField()
+    date = models.DateField()
     place = models.CharField(max_length=200, blank=True)
     pictures = models.ForeignKey('Picture', related_name='album')
     front_pic = models.OneToOneField('Picture', blank=True, null=True)

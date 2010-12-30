@@ -1,3 +1,6 @@
  * AJAX to fill the exif infos in the picture ?
  * Upload directly a set of pictures (either a folder, or many files)
  * GeoDjango to show where the picture was taken
+ * gallery templates
+ * fields hiding in the admin parts
+ * for the sets, get the date from the first picture
