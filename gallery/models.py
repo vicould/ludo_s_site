@@ -35,6 +35,7 @@ class Set(models.Model):
     place = models.CharField(max_length=200, blank=True)
     pictures = models.ForeignKey('Picture', related_name='album')
     front_pic = models.OneToOneField('Picture', blank=True, null=True)
+    tags = models.ManyToManyField(Tag, blank=True)
 
     def __unicode__(self):
         return self.name
@@ -49,7 +50,7 @@ class Picture(models.Model):
     pic = models.ImageField(upload_to='photo/%Y/%m/%d', blank=True)
     title = models.CharField(max_length=100, blank=True)
     date = models.DateTimeField(null=True, blank=True)
-    tag = models.ManyToManyField(Tag, blank=True)
+    tags = models.ManyToManyField(Tag, blank=True)
     abstract = models.TextField(blank=True)
 
     def __unicode__(self):
