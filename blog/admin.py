@@ -1,5 +1,5 @@
-from ludo_s_site.blog.models import Article, Author, Tag, User, Category, Page
-from ludo_s_site.blog.models import TopMenuElement, SideMenuElement
+from ludo-s-site.blog.models import Article, Author, Tag, User, Category, Page
+from ludo-s-site.blog.models import TopMenuElement, SideMenuElement
 from django.contrib import admin
 
 

@@ -9,7 +9,7 @@ tag_string = 'tags'
 tag_re = '(?P<tag_name>\w+)'
 
 
-urlpatterns = patterns('ludo_s_site.gallery.views',
+urlpatterns = patterns('ludo-s-site.gallery.views',
                        (r'^$', 'gallery_index'),
                        (r'^%(set_re)s/$' % locals(), 'set_detail'),
                        (r'^%(set_re)s/%(picture_re)s/$' % locals(), 'pic_detail'),

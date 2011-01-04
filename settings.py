@@ -1,4 +1,4 @@
-# Django settings for ludo_s_site project.
+# Django settings for ludo-s-site project.
 import os
 
 DEBUG = True
@@ -76,7 +76,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
-ROOT_URLCONF = 'ludo_s_site.urls'
+ROOT_URLCONF = 'ludo-s-site.urls'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
@@ -96,6 +96,6 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
-    'ludo_s_site.blog',
-    'ludo_s_site.gallery',
+    'ludo-s-site.blog',
+    'ludo-s-site.gallery',
 )
