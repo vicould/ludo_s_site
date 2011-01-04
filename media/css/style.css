@@ -1,0 +1,91 @@
+/* 
+ * Main CSS for the site
+ */
+
+/* fonts */
+@font-face {
+	font-family: "Museo-500";
+	src: url('/site_media/fonts/Museo/Museo-500.woff') format('woff');
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Museo-700";
+	src: url('/site_media/fonts/Museo/Museo-700.woff') format('woff');
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "MuseoSans-500";
+	src: url('/site_media/fonts/MuseoSans/MuseoSans-500.woff') format('woff');
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: Fontin;
+	src: url('/site_media/fonts/Fontin/Fontin-Regular.otf') format('opentype');
+}
+
+/* Global declarations */
+body {
+	padding: 0px;
+	margin: 0px;
+}
+
+body * {
+	background: #fff;
+	color: #000;
+	font-family: "Museo-700", Helvetica;
+}
+
+a {
+	color: #a0a0a0;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #000;
+	text-decoration: underline;
+}
+
+a:visited {
+}
+
+/* Header */
+#header {
+	height: 40px;
+	background: #000;
+	color: #fff;
+}
+
+#header * {
+	margin: 0px;
+	padding: 0px;
+	background: #000;
+	color: #fff;
+}
+
+#header ul {
+	list-style-type: none;
+}
+
+#header li {
+	display: inline;
+}
+
+#left_header {
+	float: left;
+}
+
+#right_header {
+	float: right;
+}
+
+/* Center wrapper */
+#center {
+	width: 800px;
+	margin: 0px auto 0px auto;
+}
