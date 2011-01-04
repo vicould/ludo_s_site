@@ -1,5 +1,5 @@
 from django.contrib import admin
-from ludo-s-site.gallery.models import  Picture, Tag, Collection, Set
+from ludo_s_site.gallery.models import  Picture, Tag, Collection, Set
 
 admin.site.register(Picture)
 admin.site.register(Tag)

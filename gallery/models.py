@@ -65,7 +65,7 @@ class Picture(models.Model):
 # --- callback functions, called on a signal  ---
 
 import re
-from ludo-s-site.gallery import exif_utils
+from ludo_s_site.gallery import exif_utils
 
 def fill_picture_set(sender, **kwargs):
     """Called on save of a picture in the database: retrieves the EXIF

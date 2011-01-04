@@ -1,7 +1,7 @@
 # Create your views here.
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext, Context, loader
-from ludo-s-site.gallery.models import Picture, Set, Collection, Tag
+from ludo_s_site.gallery.models import Picture, Set, Collection, Tag
 
 
 def gallery_index(request):

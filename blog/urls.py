@@ -1,7 +1,7 @@
 from django.conf.urls.defaults import *
 from django.views.generic import date_based
-from ludo-s-site.blog.models import Article
-from ludo-s-site.blog.feeds import RecentArticlesFeed
+from ludo_s_site.blog.models import Article
+from ludo_s_site.blog.feeds import RecentArticlesFeed
 
 year_re = '(?P<year>\d{4})'
 month_re = '(?P<month>\d{2})'
@@ -17,7 +17,7 @@ category_re = '(?P<category_name>.+)'
 article_query_basis_dictionary = { 'queryset' : Article.objects.all(), 'date_field' :
                      'date'}
 
-urlpatterns = patterns('ludo-s-site.blog.views',
+urlpatterns = patterns('ludo_s_site.blog.views',
     (r'^$',
      date_based.archive_index,
      dict(article_query_basis_dictionary.items() + { 'template_object_name' :
