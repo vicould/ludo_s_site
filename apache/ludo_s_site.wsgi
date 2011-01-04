@@ -1,7 +1,7 @@
 import os
 import sys
 
-os.environ['DJANGO_SETTINGS_MODULE'] = 'ludo-s-site.settings'
+os.environ['DJANGO_SETTINGS_MODULE'] = 'ludo_s_site.settings'
 
 
 import django.core.handlers.wsgi
