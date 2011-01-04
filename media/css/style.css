@@ -3,11 +3,9 @@
  */
 
 /* fonts */
-@font-face {
+@font-face {
 	font-family: "Museo-500";
-	src:url('/site_media/fonts/Museo/Museo-500.woff') format('woff'),
-	url('/site_media/fonts/Museo/style_154928#Museo-500') format('svg'),
-	url('/site_media/fonts/Museo/Museo-500.otf') format('opentype');
+	src: url('/site_media/fonts/Museo/Museo-500.woff') format('woff');
 	font-weight: 500;
 	font-style: normal;
 }
