@@ -5,7 +5,9 @@
 /* fonts */
 @font-face {
 	font-family: "Museo-500";
-	src: url('/site_media/fonts/Museo/Museo-500.woff') format('woff');
+	src:url('/site_media/fonts/Museo/Museo-500.woff') format('woff'),
+	url('/site_media/fonts/Museo/style_154928#Museo-500') format('svg'),
+	url('/site_media/fonts/Museo/Museo-500.otf') format('opentype');
 	font-weight: 500;
 	font-style: normal;
 }
@@ -38,7 +40,7 @@ body {
 body * {
 	background: #fff;
 	color: #000;
-	font-family: "Museo-700", Helvetica;
+	font-family: "Museo-500", Helvetica;
 }
 
 a {
