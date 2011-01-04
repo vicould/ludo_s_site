@@ -5,7 +5,7 @@
 /* fonts */
 @font-face {
 	font-family: "Museo-500";
-	src: url('/site_media/fonts/Museo/Museo-500.woff') format('woff');
+	src: url('/site_media/fonts/Museo/Museo-500.woff') format('woff'), url('/site_media/fonts/Museo/Museo-500.svg#Museo-500') format('svg');
 	font-weight: 500;
 	font-style: normal;
 }
