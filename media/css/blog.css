@@ -1,0 +1,26 @@
+/* CSS only for the blog */
+
+/* titles etc. */
+h2 {
+	margin-top: 15px;
+}
+
+#left_column {
+	float: left;
+	width: 600px;
+}
+
+#right_column {
+	float: right;
+	width: 200px;
+}
+
+#right_menu {
+}
+
+#right_column ul {
+	list-style-type: none;
+}
+
+#right_column li {
+}

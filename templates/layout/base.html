@@ -4,16 +4,18 @@
     <title>{% block title %}{% endblock %}Ludo's blog</title>
     <meta http-equiv="Content-Type" content="text/html, charset=UTF-8" /> 
     <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/style.css" media="screen" />
+    {% block extracss %}{% endblock %}
     <link rel="icon" href="{{ MEDIA_URL }}favicon.png" />
     {% block extrahead %}{% endblock %}
   </head>
   <body>
     <div id="main_wrapper">
       <div id="header">
+        <div id="header_bg"></div>
         <div id="left_header">
           <div id="title">
-            <h1><a href="/">Ludo's Blog</a></h1>
-            Geeky and real-life stuff
+            <span id="blog_title"><a href="/">Ludo's Blog</a></span>
+            <!--<span id="subtitle">Geeky and real-life stuff</span>-->
           </div>
         </div>
         <div id="right_header">
@@ -33,6 +35,7 @@
         {% block wrapper_content %}{% endblock %}
       </div>
       <div id="footer">
+        Powered by <a href="http://www.djangoproject.com">django</a>, find the app on <a href="http://github.com/vicould/ludo_s_site">Github</a>
       </div>
     </div>
   </body>

@@ -35,8 +35,10 @@ body {
 	margin: 0px;
 }
 
-body * {
-	background: #fff;
+* {
+	padding: 0px;
+	margin: 0px;
+	background: transparent;
 	color: #000;
 	font-family: "Museo-500", Helvetica;
 }
@@ -57,35 +59,71 @@ a:visited {
 /* Header */
 #header {
 	height: 40px;
+	width: 100%;
+	position: fixed;
+}
+
+#header_bg {
+	height: 100%;
+	width: 100%;
+	left: 0px;
 	background: #000;
-	color: #fff;
+	top: 0px;
+	position: absolute;
 }
 
 #header * {
-	margin: 0px;
-	padding: 0px;
-	background: #000;
 	color: #fff;
-}
-
-#header ul {
-	list-style-type: none;
-}
-
-#header li {
-	display: inline;
 }
 
 #left_header {
 	float: left;
+	position: relative;
+	padding-left: 20px;
+}
+
+#left_header * {
+	display: inline;
+}
+
+#blog_title {
+	font-size: 2em;
 }
 
 #right_header {
 	float: right;
+	position: relative;
+	padding-right: 20px;
+}
+
+#top_menu {
+	text-transform: uppercase;
+}
+
+#top_menu ul {
+	margin: 0px;
+	list-style-type: none;
+}
+
+#top_menu li {
+	padding: 10px;
+	display: inline;
+	float: right;
+	color: #fff;
 }
 
 /* Center wrapper */
 #center {
 	width: 800px;
 	margin: 0px auto 0px auto;
+	padding: 40px 0px 0px 0px;
+}
+
+/* Footer */
+#footer {
+	padding: 20px 0px;
+	text-align: center;
+	clear: both;
+	font-size: 12px;
+	color: #a0a0a0;
 }
