@@ -48,12 +48,12 @@ def tag_cloud_result(request, tag_name):
 
 def author_list(request):
 	author_list = Author.objects.all()
-	return render_to_response('blog/alls_author.html', {'author_list': author_list}, context_instance=RequestContext(request))
+	return render_to_response('blog/alls_author.html', {'object_list': author_list}, context_instance=RequestContext(request))
 
 
 def author(request, author):
 	publications_list = Article.objects.filter(author__user__username=author)
-	return render_to_response('blog/author_articles.html', {'publications_list': publications_list}, context_instance=RequestContext(request))
+	return render_to_response('blog/author_articles.html', {'object_list': publications_list}, context_instance=RequestContext(request))
 
 
 def pages_index(request):
@@ -62,7 +62,7 @@ def pages_index(request):
                                                         pages_list}, context_instance=RequestContext(request))
 
 def page_entry(request, page_title):
-    p = get_object_or_404(Page, page_title=title) 
+    p = get_object_or_404(Page, title=page_title) 
     return render_to_response('blog/page_entry.html', {'page_entry' : p}, context_instance=RequestContext(request))
 
 def categories_index(request):
