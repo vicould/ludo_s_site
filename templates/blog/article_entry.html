@@ -29,35 +29,36 @@
     {% load comments %}
     {% get_comment_count for article_entry as comment_count %}
     {% if comment_count = 0 %}
-      <p>Personne n'a encore commenté cette page.</p>
+    <p>Personne n'a encore commenté cette page.</p>
     {% else %}
-      {% get_comment_list for article_entry as comment_list %}
-      {% for comment in comment_list %}
-        <div class="comment_{% cycle 'even' 'odd' %}">
-          <div class="comment_informations">
-            <div class="comment_user">{{ comment.user_name }}</div>
-            <div class="comment_date">{{ comment.submit_date }}</div>
-          </div>
-          <div class="comment_content">{{ comment.comment }}</div>
-        </div>
-      {% endfor %}
+    {% get_comment_list for article_entry as comment_list %}
+    {% for comment in comment_list %}
+    <div class="comment_{% cycle 'even' 'odd' %}">
+      <div class="comment_informations">
+        <div class="comment_user">{{ comment.user_name }}</div>
+        <div class="comment_date">{{ comment.submit_date }}</div>
+      </div>
+      <div class="comment_content">{{ comment.comment }}</div>
+    </div>
+    {% endfor %}
     {% endif %}
   </div>
   {% if article_entry.allow_comments %}
-    <h3>Poster un commentaire</h3>
-    <div id="comment_form">
-      {% get_comment_form for article_entry as form %}
-      <ul>
-        <li>{{ form.content_type }}</li>
-        <li>{{ form.object_pk }}</li>
-        <li>{{ form.timestamp }}</li>
-        <li>{{ form.security_hash }}</li>
-        <li>Nom</li>
-        <li class="input_element">{{ form.name }}</li>
-        <li>Commentaire</li>
-        <li class="input_element">{{ form.comment }}</li>
-        <li><span style="display: none;">{{ form.honeypot }}</span></li>
-    </div>
+  <h3>Poster un commentaire</h3>
+  <div id="comment_form">
+    {% get_comment_form for article_entry as form %}
+    <ul>
+      <li>{{ form.content_type }}</li>
+      <li>{{ form.object_pk }}</li>
+      <li>{{ form.timestamp }}</li>
+      <li>{{ form.security_hash }}</li>
+      <li>Nom</li>
+      <li class="input_element">{{ form.name }}</li>
+      <li>Commentaire</li>
+      <li class="input_element">{{ form.comment }}</li>
+      <li><span style="display: none;">{{ form.honeypot }}</span></li>
+    </ul>
+  </div>
   {% endif %}
 </div>
 {% endblock %}

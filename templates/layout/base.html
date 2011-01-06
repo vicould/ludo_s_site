@@ -4,7 +4,7 @@
     <title>{% block title %}{% endblock %}Ludo's blog</title>
     <meta http-equiv="Content-Type" content="text/html, charset=UTF-8" /> 
     <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/style.css" media="screen" />
-    {% block extracss %}{% endblock %}
+    {% block extra_css %}{% endblock %}
     <link rel="icon" href="{{ MEDIA_URL }}favicon.png" />
     {% block extrahead %}{% endblock %}
   </head>
@@ -14,7 +14,7 @@
         <div id="header_bg"></div>
         <div id="left_header">
           <div id="title">
-            <span id="blog_title"><a href="/">Ludo's Blog</a></span>
+            <span id="blog_title"><a href="/" title="Geeky and real life stuff">Ludo's Blog</a></span>
             <!--<span id="subtitle">Geeky and real-life stuff</span>-->
           </div>
         </div>

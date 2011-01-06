@@ -1,0 +1,34 @@
+/* CSS for the articles */
+.article_informations_wrapper {
+	width: 100px;
+	float: left;
+	position: relative;
+	padding-top: 20px;
+	text-align: right;
+}
+
+.article_informations {
+	padding-right: 10px;
+}
+
+.article_informations ul {
+	list-style-type: none;
+}
+
+.article_content_wrapper {
+	width: 500px;
+	float: right;
+	position: relative;
+}
+
+.article_content {
+	padding-right: 10px;
+}
+
+.between_articles {
+	clear: both;
+}
+
+.year {
+	display:block;
+}
