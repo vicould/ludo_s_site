@@ -27,7 +27,7 @@ import re
 def create_top_menu(parser, token):
     """Parses the content of the token before calling the Node class."""
     try:
-        # Splitting by None == splittinh by spaces.
+        # Splitting by None == splitting by spaces.
         tag_name, arg = token.contents.split(None, 1)
     except ValueError:
         raise template.TemplateSyntaxError, "%s tag syntax is to only specify \

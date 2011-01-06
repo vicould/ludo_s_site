@@ -31,6 +31,14 @@
     </div>
     <div id="tag_cloud">
       <h2>Tag cloud</h2>
+      {% load tag_utils %}
+      {% load extra_filters %} 
+      {% tag_cloud as tags %}
+      <ul>
+        {% for tag, weight in tags.items %}
+        <li style="font-size: {{ weight|tag_size:'50' }}px;"><a href="{{ tag.get_absolute_url }}">{{ tag.name }}</a></li>
+        {% endfor %}
+      </ul>
     </div>
   </div>
 </div>

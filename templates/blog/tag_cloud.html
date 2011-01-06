@@ -2,14 +2,11 @@
 
 {% block content %}
 <div id="tags">
-{% if tag_dict %}
-		{% for tag, weight in tag_dict.items %}
-    {% load extra_filters %}
-
-    <span style="font-size: {{ weight|tag_size:'100' }}px;"><a href="{{ tag.get_absolute_url }}">{{ tag.name }}</a></span>
-		{% endfor %}
-{% else %}
-Sorry, no tags.
-{% endif %}
+  {% load tag_utils %}
+  {% load extra_filters %}
+  {% tag_cloud as tag_dict %}
+  {% for tag, weight in tag_dict.items %}
+  <span style="font-size: {{ weight|tag_size:'100' }}px;"><a href="{{ tag.get_absolute_url }}">{{ tag.name }}</a></span>
+  {% endfor %}
 </div>
 {% endblock %}

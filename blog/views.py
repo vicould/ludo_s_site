@@ -25,20 +25,7 @@ def article_entry(request, year, month, article_id):
 
 
 def tag_cloud(request):
-    tag_list = Tag.objects.all()
-    tag_dict = {}
-    total_tagged = 0
-
-    for tag_item in tag_list:
-        length = Article.objects.filter(tag__name__exact=tag_item).count()
-        tag_dict = dict(tag_dict.items() + 
-                              { tag_item : length }.items())
-        total_tagged += length
-
-    for tag_entry in tag_dict.iterkeys():
-        tag_dict[tag_entry] = tag_dict[tag_entry]/float(total_tagged)
-    
-    return render_to_response('blog/tag_cloud.html', {'tag_dict': tag_dict}, context_instance=RequestContext(request))
+    return render_to_response('blog/tag_cloud.html', context_instance=RequestContext(request))
 
 
 def tag_cloud_result(request, tag_name):
