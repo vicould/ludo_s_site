@@ -5,6 +5,10 @@ h2 {
 	margin-top: 15px;
 }
 
+h3 {
+	margin-top: 10px;
+}
+
 #left_column_wrapper {
 	float: left;
 	width: 600px;
@@ -16,11 +20,13 @@ h2 {
 	float: right;
 	width: 200px;
 	overflow: hidden;
-	position: relative;
+	position: fixed;
+	left: 750px;
 }
 
 #right_column {
 	padding-left: 10px;
+	border-left: 1px solid #a0a0a0;
 }
 
 #right_menu {

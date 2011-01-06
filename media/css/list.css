@@ -1,0 +1,58 @@
+/* CSS for the articles */
+
+/* Informations (tags, date) */
+.article_informations_wrapper {
+	width: 100px;
+	float: left;
+	position: relative;
+	padding-top: 20px;
+	text-align: right;
+}
+
+.article_informations {
+	padding-right: 10px;
+}
+
+
+.year {
+	display:block;
+}
+
+.month, .day {
+	font-size: 12px;
+}
+
+/* Content */
+.article_content_wrapper {
+	width: 500px;
+	float: right;
+	position: relative;
+}
+
+.article_content {
+	padding-right: 10px;
+}
+
+.author_informations {
+	font-size: 12px;
+}
+
+.article_abstract {
+	padding: 5px 0px 0px 10px;
+}
+
+.article_tags {
+}
+
+.article_tags ul {
+	list-style-type: none;
+}
+
+.article_tags li {
+	display: inline;
+}
+
+.between_articles {
+	clear: both;
+}
+

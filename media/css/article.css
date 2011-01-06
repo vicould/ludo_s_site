@@ -1,34 +1,68 @@
 /* CSS for the articles */
-.article_informations_wrapper {
-	width: 100px;
+
+/**** ARTICLE ****/
+#article_informations {
+	font-size: 12px;
+	color: #a0a0a0;
+}
+
+#content p {
+	padding-top: 10px;
+}
+
+#article_tags {
+	margin-top: 10px;
+}
+
+/**** COMMENTS ****/
+#comments_wrapper {
+	margin-top: 20px;
+}
+
+#comments {
+	margin: 10px;
+	border: 1px solid #a0a0a0;
+}
+
+.comment_informations {
+	display: inline;
+}
+
+.comment_informations .comment_user {
 	float: left;
-	position: relative;
-	padding-top: 20px;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.comment_informations .comment_date {
+	float: right;
 	text-align: right;
 }
 
-.article_informations {
-	padding-right: 10px;
+.comment_content {
+	float: none;
+	margin: 20px 0px 0px 0px;
 }
 
-.article_informations ul {
+.comment_even, .comment_odd {
+	padding: 10px;
+}
+
+.comment_even {
+	background-color: #a0a0a0;
+	color: #fff;
+}
+
+#comment_form {
+	margin: 10px;
+}
+
+#comment_form ul {
 	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
 }
 
-.article_content_wrapper {
-	width: 500px;
-	float: right;
-	position: relative;
-}
-
-.article_content {
-	padding-right: 10px;
-}
-
-.between_articles {
-	clear: both;
-}
-
-.year {
-	display:block;
+#comment_form .input_element {
+	margin-left: 10px;
 }

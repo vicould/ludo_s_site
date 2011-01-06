@@ -115,8 +115,8 @@ a:visited {
 
 /* Center wrapper */
 #center {
-	width: 800px;
-	margin: 0px auto 0px auto;
+	width: 801px;
+	margin: 0px auto 0px 100px;
 	padding: 40px 0px 0px 0px;
 }
 

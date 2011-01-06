@@ -1,6 +1,6 @@
 {% extends 'layout/blog_base.html' %}
 
-{% block extracss %}<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/article.css"/>{% endblock %}
+{% block extracss %}<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/list.css"/>{% endblock %}
 
 {% block content %}
 <div id="archive">
@@ -15,6 +15,17 @@
             <span class="month"><a href="{{ article.date.year }}/{{ article.date|date:"m" }}">{{ article.date|date:"M" }}</a></span>
             <span class="day">{{ article.date|date:"d" }}</span>
           </div>
+        </div>
+      </div>
+      <div class="article_content_wrapper">
+        <div class="article_content">
+          <h2><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></h2>
+          <div class="author_informations">
+            {% block informations %}
+            written by <a href="{{ article.author.get_absolute_url }}">{{ article.author }}</a> in <a href="{{ article.category.get_absolute_url }}">{{ article.category }}</a>
+            {% endblock %}
+          </div>
+          <p class="article_abstract">{{ article.extract }}</p>
           <div class="article_tags">
             <ul>
               {% for tag in article.tag.all %}
@@ -22,15 +33,6 @@
               {% endfor %}
             </ul>
           </div>
-        </div>
-      </div>
-      <div class="article_content_wrapper">
-        <div class="article_content">
-          <h2><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></h2>
-          {% block informations %}
-          written by <a href="{{ article.author.get_absolute_url }}">{{ article.author }}</a> in <a href="{{ article.category.get_absolute_url }}">{{ article.category }}</a>
-          {% endblock %}
-          <p class="article_abstract">{{ article.extract }}</p>
         </div>
       </div>
     </div>
