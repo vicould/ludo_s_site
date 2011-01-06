@@ -39,12 +39,12 @@ body {
 	padding: 0px;
 	margin: 0px;
 	background: transparent;
-	color: #000;
+	color: #808080;
 	font-family: "Museo-500", Helvetica;
 }
 
 a {
-	color: #a0a0a0;
+	color: #000;
 	text-decoration: none;
 }
 
