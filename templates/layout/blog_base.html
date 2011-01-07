@@ -12,12 +12,12 @@
 <div id="right_column_wrapper">
   <div id="right_column">
     <div id="contact">
-      <h2>Stay in touch !</h2>
+      <h2 class="first_element" >Keep in touch !</h2>
       <ul>
         <a class="right_link" href="/latest/feed/"><li><img src="{{ MEDIA_URL }}icons/rss.png" title="Via RSS" /></li></a>
         <a class="right_link" href="http://twitter.com/vicould/"><li><img src="{{ MEDIA_URL }}icons/twitter.png" title="On Twitter" /></li></a>
-        <a class="right_link" href="http://github.com/vicould/"><li><img src="{{ MEDIA_URL }}icons/github.png" title="On Github" /></li></a>
         <a class="right_link" href="http://www.flickr.com/photos/vicould/"><li><img src="{{ MEDIA_URL }}icons/flickr.png" title="On Flickr" /></li></a>
+        <a class="right_link" href="http://github.com/vicould/"><li><img src="{{ MEDIA_URL }}icons/github.png" title="On Github" /></li></a>
       </ul>
     </div>
     <div id="right_menu">
@@ -30,7 +30,7 @@
       </ul>
     </div>
     <div id="tag_cloud">
-      <h2>Tag cloud</h2>
+      <a href="/tags" class="no_decoration"><h2>Tag cloud</h2></a>
       {% load tag_utils %}
       {% load extra_filters %} 
       {% tag_cloud as tags %}
@@ -39,6 +39,40 @@
         <li style="font-size: {{ weight|tag_size:'50' }}px;"><a class="right_link" href="{{ tag.get_absolute_url }}">{{ tag.name }}</a></li>
         {% endfor %}
       </ul>
+    </div>
+    <div id="twitter_stream">
+      <h2>Tweet !</h2>
+      <script src="http://widgets.twimg.com/j/2/widget.js"></script>
+      <script>
+new TWTR.Widget({
+version: 2,
+type: 'profile',
+rpp: 4,
+interval: 6000,
+width: 250,
+height: 200,
+theme: {
+shell: {
+background: '#333333',
+color: '#ffffff'
+},
+tweets: {
+background: '#f0f0f0',
+color: '#000000',
+links: '#a0a0a0'
+}
+},
+features: {
+scrollbar: false,
+loop: false,
+live: true,
+hashtags: true,
+timestamp: true,
+avatars: false,
+behavior: 'all'
+          }
+}).render().setUser('vicould').start();
+      </script>
     </div>
   </div>
 </div>

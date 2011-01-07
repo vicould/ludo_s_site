@@ -17,18 +17,20 @@ h3 {
 }
 
 #right_column_wrapper {
+	padding-left: 10px;
 	float: right;
-	width: 200px;
-	overflow: hidden;
-	position: fixed;
+	position: absolute;
+	top: 60px;
 	left: 750px;
+	width: 300px;
+	overflow: hidden;
 }
 
 #right_column {
-	padding-left: 10px;
 }
 
-#right_menu {
+h2.first_element {
+	margin-top: 0px;
 }
 
 #right_column ul {
@@ -45,5 +47,22 @@ h3 {
 
 .right_link li {
 	color: #000;
+	padding-left: 2px;
 }
 
+a.no_decoration:hover {
+	text-decoration: none;
+}
+
+/* Twitter widget */
+.twtr-doc {
+	border: none;
+}
+
+.twtr-hd {
+	display: none;
+}
+
+.twtr-timeline {
+	margin-top: 1px;
+}
