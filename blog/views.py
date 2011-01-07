@@ -1,4 +1,5 @@
 # Create your views here.
+from django.views.decorators.csrf import csrf_protect
 from django.http import HttpResponse, Http404
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext, Context, loader
@@ -19,6 +20,7 @@ def month_archive(request, year, month):
     return render_to_response('blog/monthly_archives.html', {'month_archive_list': month_archive_list,})
 
 
+@csrf_protect
 def article_entry(request, year, month, article_id):
     a = get_object_or_404(Article, date__year=year, date__month=month, id=article_id,)
     return render_to_response('blog/article_entry.html', {'article_entry': a}, context_instance=RequestContext(request))
@@ -58,7 +60,8 @@ def categories_index(request):
                               {'categories_list' : categories_list}, context_instance=RequestContext(request))
 
 def category_detail(request, category_name):
-    related_articles_list = Article.objects.filter(category__name=category_name)
+    related_articles_list = \
+    Article.objects.filter(category__name=category_name).order_by('-date')
     related_pages_list = Page.objects.filter(category__name=category_name)
     return render_to_response('blog/category_detail.html',
                               {'related_articles_list' : related_articles_list,

@@ -45,17 +45,20 @@
   <h3>Post a comment</h3>
   <div id="comment_form">
     {% get_comment_form for article_entry as form %}
-    <ul>
-      <li>{{ form.content_type }}</li>
-      <li>{{ form.object_pk }}</li>
-      <li>{{ form.timestamp }}</li>
-      <li>{{ form.security_hash }}</li>
-      <li>Name</li>
-      <li class="input_element">{{ form.name }}</li>
-      <li>Comment</li>
-      <li class="input_element">{{ form.comment }}</li>
-      <li><span style="display: none;">{{ form.honeypot }}</span></li>
-    </ul>
+    <form action="{% comment_form_target %}" method="post">{% csrf_token %}
+      <ul>
+        <li>{{ form.content_type }}</li>
+        <li>{{ form.object_pk }}</li>
+        <li>{{ form.timestamp }}</li>
+        <li>{{ form.security_hash }}</li>
+        <li>Name</li>
+        <li class="input_element">{{ form.name }}</li>
+        <li>Comment</li>
+        <li class="input_element">{{ form.comment }}</li>
+        <li><span style="display: none;">{{ form.honeypot }}</span></li>
+        <li><input type="submit" name="preview" class="submit-post" value="Preview" /></li>
+      </ul>
+    </form>
   </div>
   {% endif %}
 </div>
