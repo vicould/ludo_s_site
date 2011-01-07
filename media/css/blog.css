@@ -35,6 +35,11 @@ h3 {
 	list-style-type: none;
 }
 
-#right_column li {
+#tag_cloud li {
 	display: inline;
 }
+
+.right_link li {
+	color: #000;
+}
+

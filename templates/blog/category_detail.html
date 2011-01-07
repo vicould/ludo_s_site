@@ -1,38 +1,61 @@
 {% extends 'layout/blog_base.html' %}
 
-{% block extrahead %}
-<link rel="stylesheet" type="text/html" href="{{ MEDIA_URL }}/css/category_list.css" media="screen" />
-{% endblock %}
+{% block extracss %}<link rel="stylesheet" type="text/html" href="{{ MEDIA_URL }}css/list.css" media="screen" />{% endblock %}
 
 {% block content %}
 
 {% if related_articles_list %}
-  <div id="article_list">
-  <h2>Articles</h2>
+<div id="article_list">
+  <h2 class="category_type">Articles</h2>
   {% for article in related_articles_list %}
-    <div class="article_{% cycle 'even' 'odd' %}">
-      <h3><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></h3>
-      <div class="article_informations">
-        written by <a href="{{ article.author.get_absolute_url }}">{{ article.author }}</a> on the {{ article.date|date:"dS F Y" }}
+  <div class="article_{% cycle 'even' 'odd' %}">
+    <div class="content_list">
+      <div class="article_informations_wrapper">
+        <div class="article_informations">
+          <div class="date_list">
+            <span class="year"><a href="{{ article.date.year }}">{{ article.date.year }}</a></span>    
+            <span class="month"><a href="{{ article.date.year }}/{{ article.date|date:"m" }}">{{ article.date|date:"M" }}</a></span>
+            <span class="day">{{ article.date|date:"d" }}</span>
+          </div>
+        </div>
       </div>
-      <p class="article_abstract">{{ article.extract }}</p>
+      <div class="article_content_wrapper">
+        <div class="article_content">
+          <h2><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></h2>
+          <div class="author_informations">
+            {% block informations %}
+            written by <a href="{{ article.author.get_absolute_url }}">{{ article.author }}</a> in <a href="{{ article.category.get_absolute_url }}">{{ article.category }}</a>
+            {% endblock %}
+          </div>
+          <p class="article_abstract">{{ article.extract }}</p>
+          <div class="article_tags">
+            <ul>
+              {% for tag in article.tag.all %}
+              <li><a href="{{ tag.get_absolute_url }}">{{ tag.name }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
-  {% endfor %}
   </div>
+  <div class="between_articles"></div>
+  {% endfor %}
+</div>
 {% endif %}
 
 {% if related_pages_list %}
-  <div id="page_list">
-  <h2>Pages</h2>
+<div id="page_list">
+  <h2 class="category_type">Pages</h2>
   {% for page in related_pages_list %}
-    <div class="page_{% cycle 'even' 'odd' %}">
-      <h3><a href="{{ page.get_absolute_url }}">{{ page.title }}</a></h3>
-      <div class="page_informations">
-      </div>
-      <p class="page_abstract">{{ page.extract }}</p>
+  <div class="page_{% cycle 'even' 'odd' %}">
+    <h3><a href="{{ page.get_absolute_url }}">{{ page.title }}</a></h3>
+    <div class="page_informations">
     </div>
-  {% endfor %}
+    <p class="page_abstract">{{ page.extract }}</p>
   </div>
+  {% endfor %}
+</div>
 {% endif %}
 
 {% endblock %}

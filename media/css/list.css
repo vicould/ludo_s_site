@@ -56,3 +56,11 @@
 	clear: both;
 }
 
+/* for the category list */
+h2.category_type {
+	padding-left: 100px;
+}
+
+.page_even, .page_odd {
+	padding-left: 100px;
+}
