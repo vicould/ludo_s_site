@@ -23,7 +23,10 @@ def month_archive(request, year, month):
 @csrf_protect
 def article_entry(request, year, month, article_id):
     a = get_object_or_404(Article, date__year=year, date__month=month, id=article_id,)
-    return render_to_response('blog/article_entry.html', {'article_entry': a}, context_instance=RequestContext(request))
+    path = request.get_full_path()
+    return render_to_response('blog/article_entry.html', 
+                              {'article_entry': a, 'current_url' : path, 'article_id' : article_id}, 
+                              context_instance=RequestContext(request))
 
 
 def tag_cloud(request):

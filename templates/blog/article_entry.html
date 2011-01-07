@@ -24,42 +24,25 @@
 <div id="comments_wrapper">
   <h3><a href="#comments">Comments</a></h3>
   <div id="comments">
-    {% load comments %}
-    {% get_comment_count for article_entry as comment_count %}
-    {% if comment_count = 0 %}
-    <p>No comments yet, start commenting below !</p>
-    {% else %}
-    {% get_comment_list for article_entry as comment_list %}
-    {% for comment in comment_list %}
-    <div class="comment_{% cycle 'even' 'odd' %}">
-      <div class="comment_informations">
-        <div class="comment_user">{{ comment.user_name }}</div>
-        <div class="comment_date">{{ comment.submit_date }}</div>
-      </div>
-      <div class="comment_content">{{ comment.comment }}</div>
-    </div>
-    {% endfor %}
-    {% endif %}
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'ludosblog'; // required: replace example with your forum shortname
+
+    // The following are highly recommended additional parameters. Remove the slashes in front to use.
+    var disqus_identifier = '{{ article_id }}';
+    var disqus_url = '{{ current_url }}';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
   </div>
-  {% if article_entry.allow_comments %}
-  <h3>Post a comment</h3>
-  <div id="comment_form">
-    {% get_comment_form for article_entry as form %}
-    <form action="{% comment_form_target %}" method="post">{% csrf_token %}
-      <ul>
-        <li>{{ form.content_type }}</li>
-        <li>{{ form.object_pk }}</li>
-        <li>{{ form.timestamp }}</li>
-        <li>{{ form.security_hash }}</li>
-        <li>Name</li>
-        <li class="input_element">{{ form.name }}</li>
-        <li>Comment</li>
-        <li class="input_element">{{ form.comment }}</li>
-        <li><span style="display: none;">{{ form.honeypot }}</span></li>
-        <li><input type="submit" name="preview" class="submit-post" value="Preview" /></li>
-      </ul>
-    </form>
-  </div>
-  {% endif %}
 </div>
 {% endblock %}
