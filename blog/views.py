@@ -23,7 +23,7 @@ def month_archive(request, year, month):
 @csrf_protect
 def article_entry(request, year, month, article_id):
     a = get_object_or_404(Article, date__year=year, date__month=month, id=article_id,)
-    path = request.get_full_path()
+    path = request.build_absolute_uri()
     return render_to_response('blog/article_entry.html', 
                               {'article_entry': a, 'current_url' : path, 'article_id' : article_id}, 
                               context_instance=RequestContext(request))
