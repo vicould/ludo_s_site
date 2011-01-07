@@ -20,15 +20,13 @@
         <a class="right_link" href="http://github.com/vicould/"><li><img src="{{ MEDIA_URL }}icons/github.png" title="On Github" /></li></a>
       </ul>
     </div>
+    {% load menu %}
+    {% side_menu_content as side_menu_list %}
+    {% if side_menu_list %}
     <div id="right_menu">
       <h2>Menu</h2>
     </div>
-    <div id="blog_roll">
-      <h2>Blog roll</h2>
-      <ul>
-        <a class="right_link" href="http://www.benjaminloulier.com"><li>Benjamin Loulier</li></a>
-      </ul>
-    </div>
+    {% endif %}
     <div id="tag_cloud">
       <a href="/tags" class="no_decoration"><h2>Tag cloud</h2></a>
       {% load tag_utils %}
@@ -47,10 +45,10 @@
 new TWTR.Widget({
 version: 2,
 type: 'profile',
-rpp: 4,
+rpp: 6,
 interval: 6000,
 width: 250,
-height: 200,
+height: 300,
 theme: {
 shell: {
 background: '#333333',
@@ -73,6 +71,12 @@ behavior: 'all'
           }
 }).render().setUser('vicould').start();
       </script>
+    </div>
+    <div id="blog_roll">
+      <h2>Blog roll</h2>
+      <ul>
+        <a class="right_link" href="http://www.benjaminloulier.com"><li>Benjamin Loulier</li></a>
+      </ul>
     </div>
   </div>
 </div>

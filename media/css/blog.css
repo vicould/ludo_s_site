@@ -17,20 +17,13 @@ h3 {
 }
 
 #right_column_wrapper {
-	padding-left: 10px;
 	float: right;
-	position: absolute;
-	top: 60px;
-	left: 750px;
 	width: 300px;
 	overflow: hidden;
 }
 
 #right_column {
-}
-
-h2.first_element {
-	margin-top: 0px;
+	padding-left: 10px;
 }
 
 #right_column ul {
