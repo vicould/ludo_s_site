@@ -35,8 +35,12 @@ h3 {
 	list-style-type: none;
 }
 
-#tag_cloud li {
+#right_column li {
 	display: inline;
+}
+
+#contact a:hover {
+	text-decoration: none;
 }
 
 .right_link li {
