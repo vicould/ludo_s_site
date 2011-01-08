@@ -25,7 +25,9 @@ class CloudNode(template.Node):
                             { tag_item : length }.items())
             total_tagged += length
 
-	max_size = max(tag_dict.itervalues())
+        if (total_tagged == 0):
+            return ''
+        max_size = max(tag_dict.itervalues())
 
         for tag_entry in tag_dict.iterkeys():
             tag_dict[tag_entry] = tag_dict[tag_entry]/float(max_size)
