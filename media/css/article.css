@@ -11,12 +11,13 @@
 	color: #000;
 }
 
-#content * {
+#content p {
+	padding-top: 10px;
 	color: #000;
 }
 
-#content p {
-	padding-top: 10px;
+#content a {
+	color: #808080;
 }
 
 #article_tags {
@@ -25,4 +26,11 @@
 
 #article_share {
 	margin-top: 10px;
+}
+
+.code {
+	padding: 10px;
+	border: 1px solid #a0a0a0;
+	background: #f0f0f0;
+	font-family: Monaco, "Courier New", monospace;
 }
