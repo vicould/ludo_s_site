@@ -1,0 +1,15 @@
+/* CSS for the pages */
+
+/**** PAGES ****/
+#content {
+	padding-top: 10px;
+	color: #000;
+}
+
+#content * {
+	color: #000;
+}
+
+#content p {
+	padding-top: 10px;
+}
