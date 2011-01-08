@@ -1,7 +1,7 @@
 # Django settings for ludo_s_site project.
 import os
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -99,3 +99,8 @@ INSTALLED_APPS = (
     'ludo_s_site.blog',
     'ludo_s_site.gallery',
 )
+
+try:
+    from ludo_s_site.local_settings import *
+except ImportError:
+    pass

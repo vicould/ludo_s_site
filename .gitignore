@@ -6,3 +6,6 @@
 
 # ignore the database
 *.db
+
+# ignore local_settings
+local_settings.py
