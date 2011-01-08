@@ -1,12 +1,9 @@
 {% extends 'layout/blog_base.html' %}
-{% block extracss %}<link rel="stylesheet" href="{{ MEDIA_URL }}css/page.css" media="screen" />{% endblock %}
 
 {% block content %}
-{% if page_entry %}
-<h2>{{ page_entry.title }}</h2>
-<div id="content">
+  {% if page_entry %}
+  <h2>{{ page_entry.title }}</h2>
   {{ page_entry.content|safe }}
-</div>
-{% endif %}
+  {% endif %}
 
 {% endblock %}
