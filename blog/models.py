@@ -36,7 +36,7 @@ class Category(models.Model):
 class Page(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
-    extract = models.TextField()
+    excerpt = models.TextField()
     category = models.ForeignKey(Category)
     allow_comments = models.BooleanField(default=True)
 
@@ -55,7 +55,7 @@ class Article(models.Model):
     tag = models.ManyToManyField(Tag, blank=True)
     category = models.ForeignKey(Category)
     content = models.TextField()
-    extract = models.TextField()
+    excerpt = models.TextField()
     allow_comments = models.BooleanField(default=True)
 
     def __unicode__(self):

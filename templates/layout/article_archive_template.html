@@ -25,7 +25,7 @@
             written by <a href="{{ article.author.get_absolute_url }}">{{ article.author }}</a> in <a href="{{ article.category.get_absolute_url }}">{{ article.category }}</a>
             {% endblock %}
           </div>
-          <p class="article_abstract">{{ article.extract }}</p>
+          <p class="article_abstract">{{ article.excerpt }}</p>
           <div class="article_tags">
             <ul>
               {% for tag in article.tag.all %}

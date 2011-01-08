@@ -13,4 +13,4 @@ class RecentArticlesFeed(Feed):
         return item.title
 
     def item_description(self, item):
-        return item.extract
+        return item.excerpt

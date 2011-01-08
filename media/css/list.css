@@ -56,6 +56,10 @@
 	clear: both;
 }
 
+#no_archive_found {
+	margin-top: 20px;
+}
+
 /* for the category list */
 h2.category_type {
 	padding-left: 100px;

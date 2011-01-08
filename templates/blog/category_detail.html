@@ -27,7 +27,7 @@
             written by <a href="{{ article.author.get_absolute_url }}">{{ article.author }}</a>
             {% endblock %}
           </div>
-          <p class="article_abstract">{{ article.extract }}</p>
+          <p class="article_abstract">{{ article.excerpt }}</p>
           <div class="article_tags">
             <ul>
               {% for tag in article.tag.all %}
@@ -52,7 +52,7 @@
     <h3><a href="{{ page.get_absolute_url }}">{{ page.title }}</a></h3>
     <div class="page_informations">
     </div>
-    <p class="page_abstract">{{ page.extract }}</p>
+    <p class="page_abstract">{{ page.excerpt }}</p>
   </div>
   {% endfor %}
 </div>
