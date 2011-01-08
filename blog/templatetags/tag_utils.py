@@ -13,7 +13,7 @@ class CloudNode(template.Node):
 
 
     def render(self, context):
-        tag_list = Tag.objects.all()
+        tag_list = Tag.objects.order_by('name')
         tag_dict = {}
         total_tagged = 0
 
