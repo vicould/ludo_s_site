@@ -33,4 +33,5 @@
 	border: 1px solid #a0a0a0;
 	background: #f0f0f0;
 	font-family: Monaco, "Courier New", monospace;
+	overflow: scroll;
 }

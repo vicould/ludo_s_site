@@ -1,6 +1,7 @@
 {% extends 'layout/blog_base.html' %}
 
-{% block title %}{{ article_entry.title }} || {% endblock %}
+{% block title %}{{ article_entry.title }} || {% endblock %}
+{% block extrakeywords %}{% for tag in article_entry.tag.all %}, {{ tag.name }}{% endfor %}{% endblock %}
 {% block extracss %}<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/article.css" media="screen" />{% endblock %}
 
 {% block content %}
@@ -8,16 +9,16 @@
   <div id="article_header">
     <h2> {{ article_entry.title }} </h2>
     <div id="article_informations">
-      Written on the {{ article_entry.date|date:"dS F Y" }} at {{ article_entry.date|time:"H:i" }} by <a href="/authors/{{ article_entry.author }}">{{ article_entry.author }}</a>
+      Written on the {{ article_entry.date|date:"dS F Y" }} at {{ article_entry.date|time:"H:i" }} by <a href="/authors/{{ article_entry.author }}">{{ article_entry.author }}</a>
     </div>
   </div>
   <div id="content">
-    {{ article_entry.content|safe }}
+    {{ article_entry.content|safe }}
   </div>
   <div id="article_tags">
     <span id="tags_word">Tags :</span>
     {% for tag in article_entry.tag.all %}
-    <a href="{{ tag.get_absolute_url }}">{{ tag.name }}</a>
+    <a href="{{ tag.get_absolute_url }}">{{ tag.name }}</a>
     {% endfor %}
   </div>
   <div id="article_share">
@@ -33,7 +34,7 @@
     var disqus_shortname = 'ludosblog'; // required: replace example with your forum shortname
 
     // The following are highly recommended additional parameters. Remove the slashes in front to use.
-    var disqus_identifier = '{{ article_id }}';
+    var disqus_identifier = '{{ article_id }}';
     var disqus_url = '{{ current_url }}';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
