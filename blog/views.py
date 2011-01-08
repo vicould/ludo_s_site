@@ -38,19 +38,9 @@ def tag_cloud_result(request, tag_name):
     return render_to_response('blog/tag_cloud_results.html', {'object_list': tagged_articles_list}, context_instance=RequestContext(request))
 
 
-def author_list(request):
-	author_list = Author.objects.all()
-	return render_to_response('blog/alls_author.html', {'object_list': author_list}, context_instance=RequestContext(request))
-
-
-def author(request, author):
-	publications_list = Article.objects.filter(author__user__username=author)
-	return render_to_response('blog/author_articles.html', {'object_list': publications_list}, context_instance=RequestContext(request))
-
-
 def pages_index(request):
     pages_list = Page.objects.all()
-    return render_to_response('blog/pages_index.html', {'pages_list' :
+    return render_to_response('layout/page_archive_template.html', {'pages_list' :
                                                         pages_list}, context_instance=RequestContext(request))
 
 def page_entry(request, page_title):

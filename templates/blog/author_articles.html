@@ -1,7 +1,0 @@
-{% extends 'layout/article_archive_template.html' %}
-
-{% block informations %}
-dans <a href="{{ article.category.get_absolute_url }}">{{ article.category }}</a>
-{% endblock %}
-
-{% block archive_type %}author{% endblock %}
