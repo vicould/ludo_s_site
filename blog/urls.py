@@ -7,8 +7,6 @@ year_re = '(?P<year>\d{4})'
 month_re = '(?P<month>\d{2})'
 article_id_re = '(?P<article_id>\d+)'
 tags_string = 'tags'
-authors_string = 'authors'
-author_re = '(?P<author>\w+)'
 pages_string = 'pages'
 page_re = '(?P<page_title>.+)'
 category_string = 'categories'
@@ -31,7 +29,6 @@ urlpatterns = patterns('ludo_s_site.blog.views',
     (r'^%(year_re)s/%(month_re)s/%(article_id_re)s/$' % locals(), 'article_entry'),
     (r'^%(tags_string)s/$' % locals(), 'tag_cloud'),
     (r'^%(tags_string)s/(?P<tag_name>.+)/$' % locals(), 'tag_cloud_result'),
-    (r'^%(authors_string)s/%(author_re)s/$' % locals(), 'author'),
     (r'^latest/feed/$', RecentArticlesFeed()),
     (r'^%(pages_string)s/$' % locals(), 'pages_index' ),
     (r'^%(pages_string)s/%(page_re)s/$' % locals(), 'page_entry' ),
