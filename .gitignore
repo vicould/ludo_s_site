@@ -9,3 +9,6 @@
 
 # ignore local_settings
 local_settings.py
+
+# ignore extra local html code
+templates/extra
