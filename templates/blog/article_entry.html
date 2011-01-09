@@ -1,6 +1,7 @@
 {% extends 'layout/blog_base.html' %}
 
 {% block title %}{{ article_entry.title }} || {% endblock %}
+
 {% block extrakeywords %}{% for tag in article_entry.tag.all %}, {{ tag.name }}{% endfor %}{% endblock %}
 {% block extracss %}<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/article.css" media="screen" />{% endblock %}
 
@@ -9,7 +10,9 @@
   <div id="article_header">
     <h2> {{ article_entry.title }} </h2>
     <div id="article_informations">
-      Written on the {{ article_entry.date|date:"dS F Y" }} at {{ article_entry.date|time:"H:i" }} by <a href="/authors/{{ article_entry.author }}">{{ article_entry.author }}</a>
+      {% with article_entry.date as article_date %}
+      Written on the {{ article_date|date:"dS F Y" }} at {{ article_date|time:"H:i" }} by <a href="{{ article_entry.author.get_absolute_url }}">{{ article_entry.author }}</a>
+      {% endwith %}
     </div>
   </div>
   <div id="content">
@@ -25,6 +28,7 @@
     <a href="http://twitter.com/share" class="twitter-share-button" data-count="none" data-via="vicould">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
   </div>
 </div>
+{% if article_entry.allow_comments %}
 <div id="comments_wrapper">
   <h3><a href="#comments">Comments</a></h3>
   <div id="comments">
@@ -49,4 +53,5 @@
 
   </div>
 </div>
+{% endif %}
 {% endblock %}

@@ -2,7 +2,6 @@
 
 {% block content %}
 <div id="archive">
-  {% if pages_list %}
   {% for page in pages_list %}
   <div class="page{% cycle 'even' 'odd' %}">
     <div class="content_list">
@@ -15,11 +14,10 @@
       <p class="page_abstract">{{ page.excerpt }}</p>
     </div>
   </div>
-  {% endfor %}
-  {% else %}
+  {% empty %}
   <p id="no_archive_found">
   Sorry, there is no page yet.
   </p>
-  {% endif %}
+  {% endfor %}
 </div>
 {% endblock %}
