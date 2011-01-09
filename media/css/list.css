@@ -39,6 +39,7 @@
 
 .article_abstract {
 	padding: 5px 0px 0px 10px;
+	color: #000;
 }
 
 .article_tags {
@@ -53,6 +54,7 @@
 }
 
 .between_articles {
+	height: 40px;
 	clear: both;
 }
 

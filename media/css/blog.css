@@ -20,14 +20,26 @@ h4 {
 	position: relative;
 }
 
+#left_column a {
+	color: #808080;
+}
+
+#left_column .year a {
+	color: #000;
+}
+
+.article_tags {
+	font-size: 12px;
+}
+
 #right_column_wrapper {
+	margin-left: 100px;
 	float: right;
-	width: 350px;
+	width: 300px;
 	overflow: hidden;
 }
 
 #right_column {
-	padding-left: 50px;
 }
 
 #right_column ul {
