@@ -5,8 +5,7 @@ Site
  * rewrite the queries for the related objects (ManyToMany, ForeignKey etc.)
 
 Blog
- * Work on the tag_cloud to sort the list alphabetically
-
+ * Work on the tag_cloud to sort the list alphabetically : retrieve the tags directly in the tag, and return a more friendly output containing only the tag name and the corresponding url.
 
 Gallery
  * AJAX to fill the exif infos in the picture ?
