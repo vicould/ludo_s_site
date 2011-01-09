@@ -4,7 +4,6 @@
 
 {% block content %}
 <div id="archive">
-  {% if object_list %}
   {% for article in object_list %}
   <div class="article_{% cycle 'even' 'odd' %}">
     <div class="content_list">
@@ -38,11 +37,10 @@
     </div>
   </div>
   <div class="between_articles"></div>
-  {% endfor %}
-  {% else %}
+  {% empty %}
   <p id="no_archive_found">
   Sorry, no articles yet for this {% block archive_type %}{% endblock %}.
   </p>
-  {% endif %}
+  {% endfor %}
 </div>
 {% endblock %}
