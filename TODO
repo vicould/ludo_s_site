@@ -1,7 +1,10 @@
 Site
  * JS to show a list of pages when opening the pages menu in the menu bar
+ * optimize the queries to the db
+ * with templatetag
 
 Blog
+ * Work on the tag_cloud to sort the list alphabetically
 
 
 Gallery

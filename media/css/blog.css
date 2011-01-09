@@ -41,6 +41,9 @@ h4 {
 #contact a:hover {
 	text-decoration: none;
 }
+a.right_link {
+	display: block;
+}
 
 .right_link li {
 	color: #000;
