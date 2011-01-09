@@ -1,7 +1,7 @@
 # Create your views here.
 from django.views.decorators.csrf import csrf_protect
 from django.http import HttpResponse, Http404
-from django.shortcuts import render_to_response, get_object_or_404
+from django.shortcuts import render_to_response
 from django.template import RequestContext, Context, loader
 from ludo_s_site.blog.models import Article, Tag, Author, Category, Page
 
@@ -15,7 +15,7 @@ def article_entry(request, year, month, article_id):
         raise Http404
     path = request.build_absolute_uri()
     return render_to_response('blog/article_entry.html', 
-                              {'article_entry': a, 'current_url' : path, 'article_id' : article_id}, 
+                              {'article_entry': a, 'current_url' : path}, 
                               context_instance=RequestContext(request))
 
 
@@ -44,7 +44,10 @@ def pages_index(request):
                                                         pages_list}, context_instance=RequestContext(request))
 
 def page_entry(request, page_title):
-    p = get_object_or_404(Page, title=page_title) 
+    try:
+        p = Page.objects.defer('excerpt').get(title=page_title) 
+    except Page.DoesNotExist:
+        raise Http404
     path = request.build_absolute_uri()
     return render_to_response('blog/page_entry.html', 
                               {'page_entry' : p, 'current_url' : path },
