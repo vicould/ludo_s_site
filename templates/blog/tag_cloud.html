@@ -1,6 +1,8 @@
 {% extends 'layout/blog_base.html' %}
 
+{% load cache %}
 {% block content %}
+{% cache 600 tag_cloud %}
 <div id="tags">
   {% load tag_utils %}
   {% load extra_filters %}
@@ -9,4 +11,5 @@
   <span style="font-size: {{ weight|tag_size:'100' }}px;"><a href="{{ tag.get_absolute_url }}">{{ tag.name }}</a></span>
   {% endfor %}
 </div>
+{% endcache %}
 {% endblock %}
