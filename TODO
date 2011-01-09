@@ -2,6 +2,7 @@ Site
  * JS to show a list of pages when opening the pages menu in the menu bar
  * optimize the queries to the db
  * with templatetag
+ * rewrite the queries for the related objects (ManyToMany, ForeignKey etc.)
 
 Blog
  * Work on the tag_cloud to sort the list alphabetically
