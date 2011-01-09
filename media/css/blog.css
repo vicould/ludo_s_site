@@ -41,7 +41,8 @@ h4 {
 #contact a:hover {
 	text-decoration: none;
 }
-a.right_link {
+
+#blog_roll a {
 	display: block;
 }
 
