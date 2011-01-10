@@ -21,7 +21,7 @@
           <h2><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></h2>
           <div class="author_informations">
             {% block informations %}
-            written by <a href="{{ article.author.get_absolute_url }}">{{ article.author }}</a> in <a href="{{ article.category.get_absolute_url }}">{{ article.category }}</a>
+            written by <a href="{{ article.author.get_absolute_url }}">{{ article.author.user.username }}</a> in <a href="{{ article.category.get_absolute_url }}">{{ article.category }}</a>
             {% endblock %}
           </div>
           <p class="article_abstract">{{ article.excerpt }}</p>
