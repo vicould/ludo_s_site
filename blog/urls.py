@@ -15,7 +15,9 @@ category_string = 'categories'
 category_re = '(?P<category_name>.+)'
 
 article_query_basis_dictionary = \
-        { 'queryset' : Article.objects.all().defer('content', 'allow_comments') , 
+        { 'queryset' : Article.objects.defer('content',
+                                             'allow_comments').select_related('author__user',
+                                                                             'category') , 
          'date_field' : 'date'}
 
 urlpatterns = patterns('ludo_s_site.blog.views',

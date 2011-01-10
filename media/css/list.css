@@ -2,10 +2,7 @@
 
 /* Informations (tags, date) */
 .article_informations_wrapper {
-	width: 100px;
-	float: left;
-	position: relative;
-	padding-top: 20px;
+	position: absolute;
 	text-align: right;
 }
 
@@ -24,8 +21,7 @@
 
 /* Content */
 .article_content_wrapper {
-	width: 500px;
-	float: right;
+	padding-left: 50px;
 	position: relative;
 }
 

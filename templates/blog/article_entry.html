@@ -11,7 +11,7 @@
     <h2> {{ article_entry.title }} </h2>
     <div id="article_informations">
       {% with article_entry.date as article_date %}
-      Written on the {{ article_date|date:"dS F Y" }} at {{ article_date|time:"H:i" }} by <a href="{{ article_entry.author.get_absolute_url }}">{{ article_entry.author }}</a>
+      Written on the {{ article_date|date:"dS F Y" }} at {{ article_date|time:"H:i" }} by <a href="{{ article_entry.author.get_absolute_url }}">{{ article_entry.author.name }}</a>
       {% endwith %}
     </div>
   </div>

@@ -15,19 +15,18 @@ h4 {
 
 #left_column_wrapper {
 	float: left;
-	width: 600px;
+	width: 60%;
 	overflow: hidden;
 	position: relative;
 }
 
 #right_column_wrapper {
 	float: right;
-	width: 350px;
+	width: 30%;
 	overflow: hidden;
 }
 
 #right_column {
-	padding-left: 50px;
 }
 
 #right_column ul {
