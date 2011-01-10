@@ -1,6 +1,6 @@
-{% extends 'layout/blog_base.html' %}
+{% extends 'layout/base.html' %}
 
-{% block content %}
+{% block wrapper_content %}
 <div id="archive">
   {% for page in pages_list %}
   <div class="page{% cycle 'even' 'odd' %}">
