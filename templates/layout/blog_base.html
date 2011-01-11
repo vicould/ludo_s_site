@@ -1,5 +1,7 @@
 {% extends 'layout/base.html' %}
 
+{% load cache %}
+
 {% block extra_css %}<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/blog.css" media="screen" />
 {% block extracss %}{% endblock %}{% endblock %}
 
@@ -27,6 +29,7 @@
       <h2>Menu</h2>
     </div>
     {% endif %}
+    {% cache 600 tag_cloud %}
     <div id="tag_cloud">
       <a href="/tags" class="no_decoration"><h2>Tag cloud</h2></a>
       {% load tag_utils %}
@@ -38,6 +41,7 @@
         {% endfor %}
       </ul>
     </div>
+    {% endcache %}
     <div id="twitter_stream">
       <h2>Tweet !</h2>
       <script src="http://widgets.twimg.com/j/2/widget.js"></script>

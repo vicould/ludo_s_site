@@ -6,6 +6,9 @@ Site
 
 Blog
  * Work on the tag_cloud to sort the list alphabetically : retrieve the tags directly in the tag, and return a more friendly output containing only the tag name and the corresponding url.
+ * author retrieves too much information each time the name is queried, could be better.
+ * move the pages from dynamic to static, remove right menu
+ * CSS: make use of @import
 
 Gallery
  * AJAX to fill the exif infos in the picture ?

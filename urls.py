@@ -1,5 +1,6 @@
 from django.conf.urls.defaults import *
 from django.conf import settings
+from django.http import HttpResponse
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -20,6 +21,10 @@ urlpatterns = patterns('',
 
     # photo gallery
     (r'^gallery/', include('ludo_s_site.gallery.urls')),
+
+    # robots
+    url(r'^robots.txt$', lambda _:
+        HttpResponse('User-agent: *\nDisallow: /admin\n', mimetype='text/plain')),
 
 )
 

@@ -11,4 +11,4 @@
 local_settings.py
 
 # ignore extra local html code
-templates/extra
+templates/extra/local
