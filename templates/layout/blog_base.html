@@ -22,13 +22,6 @@
         <a class="right_link" href="http://github.com/vicould/"><li><img src="{{ MEDIA_URL }}icons/github.png" title="On Github" /></li></a>
       </ul>
     </div>
-    {% load menu %}
-    {% side_menu_content as side_menu_list %}
-    {% if side_menu_list %}
-    <div id="right_menu">
-      <h2>Menu</h2>
-    </div>
-    {% endif %}
     {% cache 600 tag_cloud %}
     <div id="tag_cloud">
       <a href="/tags" class="no_decoration"><h2>Tag cloud</h2></a>
