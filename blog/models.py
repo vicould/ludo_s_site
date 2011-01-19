@@ -10,7 +10,7 @@ class Author(models.Model):
         return self.user.username
 
     def get_absolute_url(self):
-        return '/authors/%s' % self.user.username
+        return '/authors/%s' % self.user.username.replace(' ', '%20')
 
 
 class Tag(models.Model):
@@ -20,7 +20,7 @@ class Tag(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return '/tags/%s' % self.name
+        return '/tags/%s' % self.name.replace(' ', '%20')
 
 
 class Category(models.Model):
@@ -30,7 +30,7 @@ class Category(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return '/categories/%s' % self.name
+        return '/categories/%s' % self.name.replace(' ', '%20')
 
 
 class Page(models.Model):
@@ -45,7 +45,7 @@ class Page(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return "/pages/%s" % self.title
+        return "/pages/%s" % self.title.replace(' ', '%20')
 
 
 class Article(models.Model):
@@ -74,7 +74,7 @@ class TopMenuElement(models.Model):
         return self.element
 
     def get_absolute_url(self):
-        return '/%s' % self.url_suffix
+        return '/%s' % self.url_suffix.replace(' ', '%20')
 
 
 class SideMenuElement(models.Model):
@@ -86,5 +86,5 @@ class SideMenuElement(models.Model):
         return self.element
 
     def get_absolute_url(self):
-        return '/%s' % self.url_suffix
+        return '/%s' % self.url_suffix.replace(' ', '%20')
 
