@@ -12,3 +12,6 @@ local_settings.py
 
 # ignore extra local html code
 templates/extra/local
+
+# ignore user uploaded media files
+media/photos
