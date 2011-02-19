@@ -39,7 +39,8 @@ def author(request, author):
 
 
 def pages_index(request):
-    pages_list = Page.objects.defer('content', 'allow_comments').all()
+    pages_list = Page.objects.defer('content',
+                                    'allow_comments').filter('publish'=True)
     return render_to_response('layout/page_archive_template.html', {'pages_list' :
                                                         pages_list}, context_instance=RequestContext(request))
 
