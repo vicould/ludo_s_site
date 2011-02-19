@@ -20,15 +20,22 @@
 	color: #808080;
 }
 
-#article_tags {
-	margin-top: 10px;
+#content ul {
+	padding-left: 15px;
 }
 
-#article_share {
+#content ul, #content li {
+	color: #000;
+	padding-bottom: 5px;
+}
+
+
+#article_tags, #article_share {
 	margin-top: 10px;
 }
 
 .code {
+	color: #808080;
 	padding: 10px;
 	border: 1px solid #a0a0a0;
 	background: #f0f0f0;

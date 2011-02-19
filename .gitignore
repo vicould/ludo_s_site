@@ -2,7 +2,7 @@
 .*.sw[a-z]
 
 # ignore compiled files :
-*.pyc
+*.py[co]
 
 # ignore the database
 *.db
