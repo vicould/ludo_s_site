@@ -5,16 +5,16 @@
 <ul>
   {% for set in sets_list %}
   <li>
-  <div class="set_{% cycle 'even' 'odd' %}">
+  <div class="set_{% cycle 'even' 'odd' %}">
     <div class="set_name"><a href="{{ set.get_absolute_url }}">{{ set.name }}</a></div>
     <img height="65px" class="thumbnail" src="{{ set.front_pic.pic.url }}" />
     <div class="set_infos">
-      {{ set.place }} {{ set.date|date:"c" }}
+      {{ set.place }} {{ set.date|date:"c" }}
     </div>
     <div class="set_tags">
       <ul>
       {% for tag in set.tags.all %}
-        <li><a href="{{ tag.get_absolute_url }}">{{ tag }}</a></li>
+        <li><a href="{{ tag.get_absolute_url }}">{{ tag }}</a></li>
       {% endfor %}
       </ul>
     </div>

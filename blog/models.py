@@ -90,3 +90,29 @@ class SideMenuElement(models.Model):
     def get_absolute_url(self):
         return '/%s' % self.url_suffix.replace(' ', '%20')
 
+
+class PreCalculatedContent(models.Model):
+    name = models.CharField(max_length=20)
+    content = models.TextField()
+
+
+# --- callback function ---
+
+
+def compute_tag_cloud(sender, **kwargs):
+    """Called each time a new article is saved or a tag is added to compute the
+    tag cloud"""
+    wrapper = PreCalculatedContent.objects.get_or_create(name='tag_cloud')
+    tag_list = Tag.objects.all()
+    
+    for tag_item in tags:
+        count = Article.objects.filter(tag=tag_item)
+
+
+
+
+# --- connecting the functions ---
+from django.db.models.signals import post_save, post_delete
+
+post_save.connect(compute_tag_cloud, sender=Tag)
+
